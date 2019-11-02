@@ -7,7 +7,7 @@ module.exports = {
   read: () => {
     const table = "sopkathon";
     const query =
-      "SELECT * FROM" + " `sopt-server`" + `.${table} WHERE isLiked=1`;
+      "SELECT * FROM" + " `sopt-server`" + `.${table} WHERE isLiked=0`;
     return pool
       .queryParam_None(query)
       .then(result => {
