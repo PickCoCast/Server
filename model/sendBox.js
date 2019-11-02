@@ -12,18 +12,15 @@ module.exports = {
       .queryParam_None(query)
       .then(result => {
         const userArray = result;
+        const picArr = userArray.map(element => {
+          return element.img_url;
+        });
         console.log(userArray);
-        const user = userArray[0];
-        if (!user) {
-          return {
-            code: statusCode.BAD_REQUEST,
-            json: authUtil.successFalse(responseMessage.NO_USER)
-          };
-        }
+        console.log(picArr);
         // 로그인 성공
         return {
           code: statusCode.OK,
-          json: authUtil.successTrue(responseMessage.SIGN_IN_SUCCESS)
+          json: authUtil.successTrue(responseMessage.SIGN_IN_SUCCESS, picArr)
         };
       })
       .catch(err => {
