@@ -43,7 +43,8 @@ module.exports = {
   },
   readRandom: () => {
     const table = "sopkathon";
-    const query = "SELECT * FROM" + " `sopt-server`" + `.${table}`;
+    const query =
+      "SELECT * FROM" + " `sopt-server`" + `.${table} WHERE cate='음식'`;
     return pool
       .queryParam_None(query)
       .then(result => {
