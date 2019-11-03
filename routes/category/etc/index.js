@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const statusCode = require("../../../module/statusCode");
 const responseMessage = require("../../../module/responseMessage");
-const Send = require("../../../model/send");
+const Send = require("../../../model/sendEtc");
 // var sendRandomData = require("../../../module/send_random_data");
 
 /* GET users listing. */

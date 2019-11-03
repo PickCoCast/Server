@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const statusCode = require("../../../module/statusCode");
 const responseMessage = require("../../../module/responseMessage");
-const Send = require("../../../model/send");
+const Send = require("../../../model/sendMan");
 // var sendRandomData = require("../../../module/send_random_data");
 
 /* GET users listing. */
@@ -12,9 +12,14 @@ const Send = require("../../../model/send");
 //   res.json(dummys[randomIdx]);
 // });
 
+let like = 0;
+let notYet = -1;
+
 router.post("/", (req, res) => {
   Send.readRandom()
     .then(({ code, json }) => {
+      notYet = json.data.id;
+      console.log(notYet);
       res.status(code).send(json);
     })
     .catch(err => {
